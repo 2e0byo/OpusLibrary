@@ -4,8 +4,10 @@ Basic script to maintain a compressed copy of the music library.  We:
 
 - get list of all files in src
 - get list of all files in dst
-- build MAPPING src.LOSSLESS -> dst.LOSSLESS.opus
-- remove any files in dst not in mapping (unless --no-delete
+- re-encode any files in dst whose src mtime is newer than dst 
+- remove any files in dst not in src (unless --no-delete
   specified)
-- re-encode any files in MAPPING whose src mtime is newer than dst 
 - encode any files in src not in dst
+
+We assume a working find.  It’s definitely faster than glob (though
+I’ve not checked!)
