@@ -137,7 +137,7 @@ for track in to_encode:
     print(" == Encoding %i of %i ... ==" % (i, total))
     safe_run([
         "ffmpeg", "-v", "quiet", "-i", track, "-c:a", "libopus", "-b:a",
-        "128k",
+        f"{args.bitrate}k",
         track.replace(args.src, args.dst) + ".opus"
     ])
 
