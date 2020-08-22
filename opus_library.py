@@ -38,10 +38,10 @@ parser.add_argument("--bitrate", help="Bitrate in kbps", default="128")
 args = parser.parse_args()
 
 if not path.isdir(args.src):
-    print("Source %s is not a valid path!" % src)
+    print(f"Source {args.src} is not a valid path!")
     exit(1)
 if not path.isdir(args.dst):
-    print("Destination %s is not a valid path!" % dst)
+    print(f"Destination {args.dst} is not a valid path!")
     exit(1)
 
 
