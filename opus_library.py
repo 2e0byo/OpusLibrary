@@ -29,9 +29,8 @@ parser.add_argument("--dry_run",
                     action="store_true")
 
 parser.add_argument("--src",
-                    help="Destination; default is %s" % src,
-                    default=src)
-parser.add_argument("--dst", help="Source; default is %s" % dst, default=dst)
+                    help=f"Destination; default is {src}", default=src)
+parser.add_argument("--dst", help=f"Source; default is {dst}", default=dst)
 
 parser.add_argument("--bitrate", help="Bitrate in kbps", default="128")
 
@@ -134,7 +133,7 @@ total = len(to_encode)
 i = 0
 for track in to_encode:
     i += 1
-    print(" == Encoding %i of %i ... ==" % (i, total))
+    print(f" == Encoding {i} of {total} ... ==")
     safe_run([
         "ffmpeg", "-v", "quiet", "-i", track, "-c:a", "libopus", "-b:a",
         f"{args.bitrate}k",
@@ -145,7 +144,7 @@ total = len(to_copy)
 i = 0
 for track in to_copy:
     i += 1
-    print(" == Copying %i of %i ... ==" % (i, total))
+    print(f" == Copying {i} of {total} ... ==")
     print(track)
     safe_copyfile(track, track.replace(args.src, args.dst))
 
