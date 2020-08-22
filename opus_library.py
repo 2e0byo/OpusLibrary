@@ -124,7 +124,7 @@ tmp = []
 if not args.compress_all:
     for track in to_encode:
         suffix = track.split(".")[-1]
-        if not suffix in lossless_suffixes:
+        if suffix not in lossless_suffixes:
             to_copy.append(track)
         else:
             tmp.append(track)
